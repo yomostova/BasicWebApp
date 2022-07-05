@@ -30,4 +30,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is your name"), containsString("pizza"));
     }
 
+    @Test
+    public void largest() throws Exception {
+        assertThat(queryProcessor.process("largest: 200, 300"), containsString("300"));
+    }
+
 }

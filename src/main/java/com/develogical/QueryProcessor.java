@@ -20,6 +20,9 @@ public class QueryProcessor {
         }
         else if (query.toLowerCase().contains("largest")){
                 String[] reduced = query.toLowerCase().substring(query.toLowerCase().indexOf(":") + 2).split(", ");
+                for(String s : reduced){
+                    System.out.println(s);
+                }
                 int max = 0;
                 for(String s : reduced){
                     if (Integer.valueOf(s) > max){
@@ -28,6 +31,15 @@ public class QueryProcessor {
                 }
                 return "" + max;
             }
+        else if (query.toLowerCase().contains("multiplied")){
+            String[] splitted = query.toLowerCase().split(" ");
+            for (int i = 0; i < splitted.length; i++) {
+                if (splitted[i].equals("multiplied")) {
+                    int res = Integer.parseInt(splitted[i - 1]) * Integer.parseInt(splitted[i + 2]);
+                    return "" + res;
+                }
+            }
+        }
         return "";
     }
 }

@@ -19,7 +19,7 @@ public class QueryProcessor {
             }
         }
         else if (query.toLowerCase().contains("largest")){
-                String[] reduced = query.toLowerCase().substring(query.toLowerCase().indexOf(":") + 2).split(",");
+                String[] reduced = query.toLowerCase().substring(query.toLowerCase().indexOf(":") + 2).split(", ");
                 int max = 0;
                 for(String s : reduced){
                     if (Integer.valueOf(s) > max){

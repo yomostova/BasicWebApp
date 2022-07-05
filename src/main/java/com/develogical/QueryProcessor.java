@@ -9,6 +9,14 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.toLowerCase().contains("name")) {
             return "pizza";
+        } else if (query.toLowerCase().contains("plus")) {
+            String[] splitted = query.toLowerCase().split(" ");
+            for(int i = 0; i < splitted.length; i++){
+                if (splitted[i].equals("plus")){
+                    int res = Integer.parseInt(splitted[i-1]) + Integer.parseInt(splitted[i+1]);
+                   return "" + res;
+                }
+            }
         }
         return "";
     }

@@ -11,13 +11,23 @@ public class QueryProcessor {
             return "pizza";
         } else if (query.toLowerCase().contains("plus")) {
             String[] splitted = query.toLowerCase().split(" ");
-            for(int i = 0; i < splitted.length; i++){
-                if (splitted[i].equals("plus")){
-                    int res = Integer.parseInt(splitted[i-1]) + Integer.parseInt(splitted[i+1]);
-                   return "" + res;
+            for (int i = 0; i < splitted.length; i++) {
+                if (splitted[i].equals("plus")) {
+                    int res = Integer.parseInt(splitted[i - 1]) + Integer.parseInt(splitted[i + 1]);
+                    return "" + res;
                 }
             }
         }
+        else if (query.toLowerCase().contains("largest")){
+                String[] reduced = query.toLowerCase().substring(query.toLowerCase().indexOf(":") + 2).split(",");
+                int max = 0;
+                for(String s : reduced){
+                    if (Integer.valueOf(s) > max){
+                        max = Integer.valueOf(s);
+                    }
+                }
+                return "" + max;
+            }
         return "";
     }
 }
